@@ -12,13 +12,15 @@ Nine orchestrations were written from one score and rendered to audio for this c
 
 ## How the audio was made
 
-1. **Score.** All arrangements derive from a single machine-readable model of the tune: the same note events, the same bar grid, the same tempo. Only the orchestration differs, which is why any two tracks can be swapped without the timing moving.
+1. **One score.** All nine arrangements are written from a single score of the tune: the same note events, the same bars, the same tempo. The reading follows the printed score — its note values, its pitches, its register and its own key — so the melody and the accompaniment land on the same beats. Only the orchestration differs, which is why any two tracks can be swapped without the timing moving.
 2. **Parts to MIDI.** Each arrangement's parts were written out as a Standard MIDI File, one file per arrangement — the files in `midi/`.
 3. **Synthesis.** `fluidsynth` rendered each MIDI through the **MuseScore_General** soundfont.
 4. **Mixing and mastering.** `ffmpeg` applied per-arrangement tone shaping, then one shared loudness target across the whole suite (`loudnorm I=-16:TP=-1.5:LRA=11`, 44.1 kHz, 16-bit stereo).
 5. **Encode.** `ffmpeg` encoded the listening copies at 192 kbps MP3.
+6. **Tempo.** The score carries no metronome mark, so the tempo is a performer's choice rather than something transcribed from the page.
+7. **Reading.** An earlier release of this repository carried a different reading of the same tune — different note values, and a different key. The audio in this release is the score-faithful reading; a video walkthrough made about the earlier release documents that earlier reading, not this one.
 
-The pipeline itself — the generator, the score parser, the orchestration code — is **not published** and is not open source. It is not part of this repository.
+The tooling used to make these arrangements is **not published** and is not open source. It is not part of this repository.
 
 ## Attribution block
 
