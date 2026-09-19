@@ -35,7 +35,8 @@ there is no bundled archive, and nothing is zipped.
 
 Each track is independently addressable — its own file path, its own download, and its own anchor
 on the player page (`.../#soviet-march`, for example), so a video chapter can deep-link to one
-track.
+track. The player page itself is [`index.html`](index.html) in this repository, published with
+GitHub Pages; it works opened straight from disk too.
 
 > The `wav` links in the table above point at release assets; use the
 > [player page](https://onezion12344.github.io/greensleeves-player/) or the
