@@ -1,1 +1,176 @@
-<!DOCTYPE html><html><body><h1 id="probe3-ok">probe 3 ok</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greensleeves — Nine Orchestrations from One Score</title>
+<meta name="description" content="Nine arrangements of the traditional Greensleeves tune, all rendered from one machine-readable score. Listen free in the browser. Arrangement and recording © 2026 OneZion, all rights reserved.">
+<meta property="og:title" content="Greensleeves — Nine Orchestrations from One Score">
+<meta property="og:description" content="One traditional tune, nine orchestrations, one score. Listen to all nine in the browser.">
+<meta property="og:type" content="music.album">
+<style>
+  :root{
+    --bg:#0c110f; --panel:#131b18; --panel-2:#182220; --line:#26332e;
+    --ink:#e9e6dc; --ink-dim:#a7ada3; --accent:#8fbf6a; --accent-dim:#5f8a48;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+       background-image:radial-gradient(1200px 600px at 50% -200px,#16241c 0%,transparent 70%);}
+  a{color:var(--accent)}
+  a:hover{color:#a9d485}
+  .wrap{max-width:820px;margin:0 auto;padding:48px 20px 80px}
+  header{text-align:center;padding-bottom:8px}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-dim);margin:0 0 14px}
+  h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:0 0 10px;font-weight:600;letter-spacing:-.01em}
+  .lede{color:var(--ink-dim);max-width:60ch;margin:0 auto 22px}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);margin:34px 0}
+  .toolbar{display:flex;justify-content:center;gap:10px;margin:0 0 6px}
+  button.lang{font:inherit;font-size:13px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);
+       background:var(--panel);color:var(--ink-dim);cursor:pointer}
+  button.lang[aria-pressed="true"]{border-color:var(--accent-dim);color:var(--accent);background:#152019}
+  .note{font-size:13px;color:var(--ink-dim);text-align:center;margin:16px auto 0;max-width:62ch}
+  ol.tracks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  li.track{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  li.track:target{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-dim)}
+  .head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .num{font-family:var(--mono);font-size:13px;color:var(--accent-dim);min-width:1.6em}
+  .title{font-size:17px;font-weight:600;margin:0}
+  .dur{font-family:var(--mono);font-size:12px;color:var(--ink-dim);margin-left:auto}
+  .style{margin:6px 0 12px;color:var(--ink-dim);font-size:14.5px}
+  audio{width:100%;height:38px;display:block;border-radius:8px}
+  .links{margin:10px 0 0;font-size:12.5px;font-family:var(--mono);display:flex;gap:16px;flex-wrap:wrap}
+  .links a{text-decoration:none;border-bottom:1px solid var(--accent-dim);padding-bottom:1px}
+  footer{margin-top:44px;color:var(--ink-dim);font-size:13.5px}
+  footer h2{font-size:14px;color:var(--ink);margin:0 0 8px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase}
+  .rights{border:1px solid var(--line);background:var(--panel-2);border-radius:12px;padding:16px 18px;margin-top:26px}
+  .rights p{margin:0 0 10px}
+  .rights p:last-child{margin-bottom:0}
+  code{font-family:var(--mono);font-size:.92em;background:#0f1614;border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+  .zh[hidden],.en[hidden]{display:none}
+  @media (max-width:520px){ .wrap{padding-top:32px} .dur{margin-left:0;width:100%} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="kicker">One Score · Nine Orchestrations</p>
+  <h1><span class="en">Greensleeves</span><span class="zh" hidden>绿袖子</span></h1>
+  <p class="lede en">Every track below is rendered from the <em>same</em> machine-readable score — the same melody events, the same 22-bar grid, the same tempo. Only the orchestration changes, so any two versions can be swapped without the timing moving.</p>
+  <p class="lede zh" hidden>下面每一轨都渲染自<strong>同一份</strong>机器可读的乐谱 —— 同样的旋律事件、同样 22 小节的网格、同样的速度。变的只有配器，所以任意两版互换都不会错位。</p>
+  <div class="toolbar">
+    <button class="lang" id="btn-en" aria-pressed="true" onclick="setLang('en')">English</button>
+    <button class="lang" id="btn-zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
+  </div>
+  <p class="note en">Nine tracks · 10:13 total · MP3 streams here in the browser, WAV masters and MIDI are one click away.</p>
+  <p class="note zh" hidden>共九轨 · 全长 10:13 · MP3 在浏览器内直接播放，WAV 母带与 MIDI 各一键可达。</p>
+</header>
+
+<div class="rule"></div>
+
+<ol class="tracks">
+
+  <li class="track" id="strings-harp">
+    <div class="head"><span class="num">01</span><h2 class="title en">Strings &amp; Harp</h2><h2 class="title zh" hidden>弦乐与竖琴</h2><span class="dur">1:16</span></div>
+    <p class="style en">Harp arpeggios rolling under a full string choir, with a solo flute tracing the tune an octave above. The classic reading, and the one the rest were built around.</p>
+    <p class="style zh" hidden>竖琴琶音在弦乐组下方滚动，一支长笛在高八度上托着旋律。最经典的一版，其余八版都是围着它长出来的。</p>
+    <audio controls preload="metadata" src="tracks/strings_harp.mp3"></audio>
+    <p class="links"><a href="tracks/strings_harp.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/strings_harp.wav">WAV master</a><a href="midi/strings_harp.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="symphony">
+    <div class="head"><span class="num">02</span><h2 class="title en">Symphony</h2><h2 class="title zh" hidden>交响乐</h2><span class="dur">1:16</span></div>
+    <p class="style en">The whole orchestra in the room: violins and violas divided, flutes and oboe overhead, horns in the middle, timpani marking the ground.</p>
+    <p class="style zh" hidden>整个乐团都在场：小提琴与中提琴分声部，长笛与双簧管在上方，圆号在中声部，定音鼓钉住地面。</p>
+    <audio controls preload="metadata" src="tracks/symphony.mp3"></audio>
+    <p class="links"><a href="tracks/symphony.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/symphony.wav">WAV master</a><a href="midi/symphony.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="string-quartet">
+    <div class="head"><span class="num">03</span><h2 class="title en">String Quartet</h2><h2 class="title zh" hidden>弦乐四重奏</h2><span class="dur">1:08</span></div>
+    <p class="style en">Four players, no safety net — first violin takes the tune while viola and cello hold the repeating four-bar ground beneath it.</p>
+    <p class="style zh" hidden>四个人，没有退路 —— 第一小提琴拉旋律，中提琴与大提琴在下面托着四小节一循环的低音。</p>
+    <audio controls preload="metadata" src="tracks/string_quartet.mp3"></audio>
+    <p class="links"><a href="tracks/string_quartet.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/string_quartet.wav">WAV master</a><a href="midi/string_quartet.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="harp-solo">
+    <div class="head"><span class="num">04</span><h2 class="title en">Harp Solo</h2><h2 class="title zh" hidden>竖琴独奏</h2><span class="dur">1:16</span></div>
+    <p class="style en">One harp doing three jobs at once: the tune in the upper register, arpeggios rolling underneath, and the bass line played by the thumb.</p>
+    <p class="style zh" hidden>一架竖琴同时干三件事：高音区走旋律，中间滚琶音，低音用拇指弹。</p>
+    <audio controls preload="metadata" src="tracks/harp_solo.mp3"></audio>
+    <p class="links"><a href="tracks/harp_solo.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/harp_solo.wav">WAV master</a><a href="midi/harp_solo.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="organ-choir">
+    <div class="head"><span class="num">05</span><h2 class="title en">Organ &amp; Choir</h2><h2 class="title zh" hidden>管风琴与合唱</h2><span class="dur">1:09</span></div>
+    <p class="style en">Church registration — organ manuals, a wordless choir pad and pedal bass. Solemn, slow-breathing, and the oldest sound in the set.</p>
+    <p class="style zh" hidden>教堂音色 —— 管风琴键盘、无词合唱垫、脚键盘低音。庄重、慢呼吸，是这套里最老的声音。</p>
+    <audio controls preload="metadata" src="tracks/organ_choir.mp3"></audio>
+    <p class="links"><a href="tracks/organ_choir.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/organ_choir.wav">WAV master</a><a href="midi/organ_choir.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="piano-echo">
+    <div class="head"><span class="num">06</span><h2 class="title en">Piano &amp; Echo</h2><h2 class="title zh" hidden>钢琴与回声</h2><span class="dur">1:09</span></div>
+    <p class="style en">A single soft piano left wet with a two-tap echo. The quietest track here, and the one that sounds most like a memory.</p>
+    <p class="style zh" hidden>一架轻柔的钢琴，挂着两个抽头的回声。全辑最安静的一轨，也最像一段回忆。</p>
+    <audio controls preload="metadata" src="tracks/piano_echo.mp3"></audio>
+    <p class="links"><a href="tracks/piano_echo.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/piano_echo.wav">WAV master</a><a href="midi/piano_echo.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="music-box">
+    <div class="head"><span class="num">07</span><h2 class="title en">Music Box &amp; Celesta</h2><h2 class="title zh" hidden>八音盒与钢片琴</h2><span class="dur">1:09</span></div>
+    <p class="style en">Music box and celesta over a barely-there string halo. The fairytale version — sized for a title card.</p>
+    <p class="style zh" hidden>八音盒与钢片琴，底下垫一层几乎听不见的弦乐。童话版 —— 正好配一个片头。</p>
+    <audio controls preload="metadata" src="tracks/music_box.mp3"></audio>
+    <p class="links"><a href="tracks/music_box.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/music_box.wav">WAV master</a><a href="midi/music_box.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="march">
+    <div class="head"><span class="num">08</span><h2 class="title en">March</h2><h2 class="title zh" hidden>进行曲</h2><span class="dur">1:08</span></div>
+    <p class="style en">Snare rudiments and a brass band: the tune squared off into a processional, with the clock left exactly where it was.</p>
+    <p class="style zh" hidden>小鼓装饰音加铜管乐队：把这条调子方正地迈成队列，而时钟一格没动。</p>
+    <audio controls preload="metadata" src="tracks/march.mp3"></audio>
+    <p class="links"><a href="tracks/march.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/march.wav">WAV master</a><a href="midi/march.mid">MIDI</a></p>
+  </li>
+
+  <li class="track" id="soviet-march">
+    <div class="head"><span class="num">09</span><h2 class="title en">Soviet March</h2><h2 class="title zh" hidden>苏维埃进行曲</h2><span class="dur">0:37</span></div>
+    <p class="style en">Trumpets and cornets carrying the tune over block brass chords, tuba on the pulse and a rudimental snare. The only track that changes the tempo — and the only one that marches.</p>
+    <p class="style zh" hidden>小号与短号扛着旋律，长号圆号砸柱式和弦，大号走拍，小鼓带倚音。唯一改了速度的一轨 —— 也是唯一真正在行进的。</p>
+    <audio controls preload="metadata" src="tracks/soviet_march.mp3"></audio>
+    <p class="links"><a href="tracks/soviet_march.mp3" download>MP3</a><a href="https://github.com/onezion12344/pages-probe-3/releases/download/v1.0.0/soviet_march.wav">WAV master</a><a href="midi/soviet_march.mid">MIDI</a></p>
+  </li>
+
+</ol>
+
+<div class="rights">
+  <h2>Rights</h2>
+  <p class="en"><strong>All rights reserved.</strong> The tune <em>Greensleeves</em> is a traditional English melody in the public domain; these <strong>arrangements, realisations and recordings are © 2026 OneZion</strong>, and no third-party recording is used anywhere in them. This page is public, but the collection is not open source — the pipeline that generated it is not published. Listening and private downloading are welcome; re-uploading, use in your own videos or products, sampling and ML training are not permitted without written permission. Full terms in <a href="LICENSE">LICENSE</a>, production credits and third-party notices in <a href="CREDITS.md">CREDITS.md</a>.</p>
+  <p class="zh" hidden><strong>保留所有权利。</strong>《Greensleeves》是英格兰传统曲调，属公有领域；<strong>本页的配器、实现与录音 © 2026 OneZion</strong>，且未使用任何第三方录音。页面公开，但本合辑<strong>不是开源项目</strong> —— 生成它的流水线不对外发布。欢迎试听与个人下载；未经书面许可，不得转载搬运、用于自己的视频或产品、采样或用于模型训练。完整条款见 <a href="LICENSE">LICENSE</a>，制作与第三方声明见 <a href="CREDITS.md">CREDITS.md</a>。</p>
+</div>
+
+<footer>
+  <p class="en">Rendered with <code>fluidsynth</code> + the MuseScore_General soundfont (MIT), mixed with <code>ffmpeg</code>. MP3 192 kbps · WAV 44.1 kHz / 16-bit stereo · all nine normalised to one loudness target. Source repository: <a href="https://github.com/onezion12344/pages-probe-3">github.com/onezion12344/greensleeves-orchestrations</a>.</p>
+  <p class="zh" hidden>由 <code>fluidsynth</code> + MuseScore_General 音色库（MIT）渲染，<code>ffmpeg</code> 混音。MP3 192 kbps · WAV 44.1 kHz / 16-bit 立体声 · 九版统一响度目标。源码仓库：<a href="https://github.com/onezion12344/pages-probe-3">github.com/onezion12344/greensleeves-orchestrations</a>。</p>
+</footer>
+
+</div>
+
+<script>
+  function setLang(lang){
+    var zh = lang === 'zh';
+    document.documentElement.lang = zh ? 'zh-Hans' : 'en';
+    document.querySelectorAll('.en').forEach(function(e){ e.hidden = zh; });
+    document.querySelectorAll('.zh').forEach(function(e){ e.hidden = !zh; });
+    document.getElementById('btn-en').setAttribute('aria-pressed', String(!zh));
+    document.getElementById('btn-zh').setAttribute('aria-pressed', String(zh));
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+  }
+  if (navigator.language && navigator.language.toLowerCase().indexOf('zh') === 0) setLang('zh');
+</script>
+</body>
+</html>
