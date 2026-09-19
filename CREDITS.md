@@ -8,17 +8,18 @@
 **The arrangements, the realisations and the recordings** — © 2026 OneZion.
 **All rights reserved.** See [LICENSE](LICENSE).
 
-Nine orchestrations were written from one score and rendered to audio for this collection. No third-party recording, commercial master, sample library or licensed music appears anywhere in it. Nothing is quoted from any existing recording.
+Nine orchestrations were written from one score — the introduction and the theme alike — and rendered to audio for this collection. No third-party recording, commercial master, sample library or licensed music appears anywhere in it. Nothing is quoted from any existing recording.
 
 ## How the audio was made
 
-1. **One score.** All nine arrangements are written from a single score of the tune: the same note events, the same bars, the same tempo. The reading follows the printed score — its note values, its pitches, its register and its own key — so the melody and the accompaniment land on the same beats. Only the orchestration differs, which is why any two tracks can be swapped without the timing moving.
-2. **Parts to MIDI.** Each arrangement's parts were written out as a Standard MIDI File, one file per arrangement — the files in `midi/`.
-3. **Synthesis.** `fluidsynth` rendered each MIDI through the **MuseScore_General** soundfont.
-4. **Mixing and mastering.** `ffmpeg` applied per-arrangement tone shaping, then one shared loudness target across the whole suite (`loudnorm I=-16:TP=-1.5:LRA=11`, 44.1 kHz, 16-bit stereo).
-5. **Encode.** `ffmpeg` encoded the listening copies at 192 kbps MP3.
-6. **Tempo.** The score carries no metronome mark, so the tempo is a performer's choice rather than something transcribed from the page.
-7. **Reading.** An earlier release of this repository carried a different reading of the same tune — different note values, and a different key. The audio in this release is the score-faithful reading; a video walkthrough made about the earlier release documents that earlier reading, not this one.
+1. **One score.** All nine arrangements are written from a single score of the piece: the same note events, the same bars, the same tempo, the same introduction. The reading follows the printed score — its note values, its pitches, its register and its own key. Only the orchestration differs, which is why any two tracks can be swapped without the timing moving.
+2. **The introduction.** The bars the score prints before the tune's string statement are carried into all nine. The line that rises across them is transcribed from the page; the accompaniment beneath each arrangement's opening is that arrangement's own, the same division of labour as everywhere else in the set.
+3. **Parts to MIDI.** Each arrangement's parts were written out as a Standard MIDI File, one file per arrangement — the files in `midi/`.
+4. **Synthesis.** `fluidsynth` rendered each MIDI through the **MuseScore_General** soundfont.
+5. **Mixing and mastering.** `ffmpeg` applied per-arrangement tone shaping, then a two-pass loudness normalisation to one shared target across the whole suite (`I=-16 LUFS`, true peak ≤ −1.5 dBFS, 44.1 kHz, 16-bit stereo).
+6. **Encode.** `ffmpeg` encoded the listening copies at 192 kbps MP3.
+7. **Tempo.** The score carries no metronome mark. The tempo is a performer's choice rather than something transcribed from the page, and the introduction and the theme are played at one speed.
+8. **Reading.** Earlier releases of this repository carried a different reading of the same tune — different note values, in a different key. The audio in this release is the score-faithful reading; a video walkthrough made about the earlier reading documents that one, not this.
 
 The tooling used to make these arrangements is **not published** and is not open source. It is not part of this repository.
 
