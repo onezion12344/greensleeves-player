@@ -1,0 +1,60 @@
+Copyright © 2026 OneZion. All rights reserved.
+
+This is an all-rights-reserved notice, not a licence. The fact that this repository is
+public does not make it open source, and no open-source or free-culture licence applies
+to any part of it.
+
+WHAT THIS COVERS
+----------------
+
+1. The audio recordings in this repository and in its releases (the "Recordings").
+2. The musical arrangements realised in those Recordings — the orchestration,
+   part-writing, harmonisation and voicings (the "Arrangements").
+3. The MIDI files in `midi/`, the text of this repository, and the layout of the
+   player page.
+
+The melody of "Greensleeves" is a traditional English tune in the public domain. No
+copyright is claimed in that melody. Copyright is claimed in the Arrangements and the
+Recordings — that is, in everything this project added to the tune.
+
+PERMITTED
+---------
+
+You may, without asking:
+
+  - listen to the Recordings;
+  - download them for your own private listening;
+  - link to this repository, to the player page, and to individual tracks;
+  - quote the track titles and short descriptions in commentary, reviews or credits,
+    with a link back to this repository.
+
+NOT PERMITTED
+-------------
+
+Without prior written permission from the copyright holder, you may not:
+
+  - copy, redistribute, re-upload, mirror, or re-host the Recordings, the MIDI files,
+    or any substantial part of them;
+  - use them in your own video, stream, podcast, game, app, product or service,
+    including as background music;
+  - sample, remix, edit, or otherwise create derivative works from them;
+  - sublicense, sell, rent, or otherwise commercially exploit them;
+  - use them (or any portion of them) as training data for machine-learning or
+    generative models.
+
+No licence is granted by implication, estoppel or otherwise, beyond the permissions
+listed above. All rights not expressly granted are reserved.
+
+THIRD-PARTY NOTICES
+-------------------
+
+This repository does not distribute the MuseScore_General soundfont or any other
+third-party work used in production. Copyright and licence notices for the tools and
+sample sources used to make these Recordings are reproduced in CREDITS.md, which forms
+part of this notice.
+
+CONTACT
+-------
+
+For permission requests, contact the copyright holder through this repository's owner
+profile: https://github.com/onezion12344
